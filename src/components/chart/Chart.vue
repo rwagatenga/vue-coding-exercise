@@ -4,7 +4,7 @@
       <div
         class="rounded-full bg-white items-center place-items-center text-center w-24 h-24 p-8"
       >
-        <span class="text-center font-medium">1000</span>
+        <span class="text-center font-medium">{{ mean }}</span>
       </div>
       <div class="text-center text-white mt-2 font-medium text-sm">Mean</div>
     </div>
@@ -22,7 +22,9 @@
       >
         <span class="text-center font-medium">00</span>
       </div>
-      <div class="text-center text-white mt-2 font-medium text-sm">STD Deviation</div>
+      <div class="text-center text-white mt-2 font-medium text-sm">
+        STD Deviation
+      </div>
     </div>
     <div>
       <div
@@ -36,5 +38,7 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["mean"],
+};
 </script>
