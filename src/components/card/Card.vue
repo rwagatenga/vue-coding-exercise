@@ -9,11 +9,11 @@
         </h5>
       </div>
       <div class="bg-indigo-900 p-5 center-item">
-        <app-chart></app-chart>
+        <app-chart :chartData="chartData"></app-chart>
       </div>
       <div class="flex justify-between mt-10 divide-x">
         <app-button></app-button>
-        <app-textField></app-textField>
+        <app-textField @fetchedDataset="fetchDataset"></app-textField>
       </div>
     </div>
   </div>
@@ -25,6 +25,24 @@ import Chart from "../chart/Chart.vue";
 import Button from "../buttons/Button.vue";
 import TextField from "../inputField/TextField.vue";
 export default {
+  data: function () {
+    return {
+      chartData: {
+        mean: 0,
+        median: 0,
+        stdDeviation: 0,
+        mode: 0,
+      },
+    };
+  },
+  methods: {
+    fetchDataset(results) {
+      this.chartData = {
+        ...this.chartData,
+        ...results,
+      };
+    },
+  },
   components: {
     "app-title": Title,
     "app-chart": Chart,

@@ -4,7 +4,7 @@
       <div
         class="rounded-full bg-white items-center place-items-center text-center w-24 h-24 p-8"
       >
-        <span class="text-center font-medium">{{ mean }}</span>
+        <span class="text-center font-medium">{{ chartData.mean }}</span>
       </div>
       <div class="text-center text-white mt-2 font-medium text-sm">Mean</div>
     </div>
@@ -12,7 +12,7 @@
       <div
         class="rounded-full bg-white items-center place-items-center text-center w-24 h-24 p-8"
       >
-        <span class="text-center font-medium">1000</span>
+        <span class="text-center font-medium">{{ chartData.median }}</span>
       </div>
       <div class="text-center text-white mt-2 font-medium text-sm">Median</div>
     </div>
@@ -20,7 +20,9 @@
       <div
         class="rounded-full bg-white items-center place-items-center text-center w-24 h-24 p-8"
       >
-        <span class="text-center font-medium">00</span>
+        <span class="text-center font-medium">{{
+          chartData.stdDeviation
+        }}</span>
       </div>
       <div class="text-center text-white mt-2 font-medium text-sm">
         STD Deviation
@@ -30,7 +32,7 @@
       <div
         class="rounded-full bg-white items-center place-items-center text-center w-24 h-24 p-8"
       >
-        <span class="text-center font-medium">1000</span>
+        <span class="text-center font-medium">{{ chartData.mode }}</span>
       </div>
       <div class="text-center text-white mt-2 font-medium text-sm">Mode</div>
     </div>
@@ -39,6 +41,25 @@
 
 <script>
 export default {
-  props: ["mean"],
+  props: {
+    chartData: {
+      mean: {
+        type: Number,
+        required: true,
+      },
+      median: {
+        type: Number,
+        required: true,
+      },
+      stdDeviation: {
+        type: Number,
+        required: true,
+      },
+      mode: {
+        type: Number,
+        required: true,
+      },
+    },
+  },
 };
 </script>
