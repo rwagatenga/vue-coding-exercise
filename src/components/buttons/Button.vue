@@ -27,13 +27,6 @@ import XLSX from "xlsx";
 export default {
   data() {
     return {
-      channel_name: "",
-      channel_fields: [],
-      channel_entries: [],
-      parse_header: [],
-      parse_csv: [],
-      sortOrders: {},
-      sortKey: "",
       excelData: [],
     };
   },
