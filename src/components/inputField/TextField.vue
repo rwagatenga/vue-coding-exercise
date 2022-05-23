@@ -68,9 +68,6 @@ export default {
               0
             );
 
-            // Calculating the variance
-            let variance = sum / arr.length;
-
             // Returning the Standered deviation
             return Math.sqrt(sum / arr.length);
           };
