@@ -1,7 +1,8 @@
 <template>
-  <div class="p-5">
+  <form class="m-0 p-5" enctype="multipart/form-data">
     <button
       class="px-5 rounded-r-lg bg-indigo-900 hover:bg-indigo-800 text-white font-bold p-2 uppercase border-indigo-800 border-t border-b border-r"
+      @click="uploadDataset"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -18,5 +19,38 @@
       </svg>
       <span>Upload</span>
     </button>
-  </div>
+  </form>
 </template>
+
+<script>
+import XLSX from "xlsx";
+export default {
+  data() {
+    return {
+      channel_name: "",
+      channel_fields: [],
+      channel_entries: [],
+      parse_header: [],
+      parse_csv: [],
+      sortOrders: {},
+      sortKey: "",
+      excelData: [],
+    };
+  },
+  methods: {
+    excelExport(event) {
+      var input = event.target;
+      var reader = new FileReader();
+      reader.onload = () => {
+        var fileData = reader.result;
+        var wb = XLSX.read(fileData, { type: "binary" });
+        wb.SheetNames.forEach((sheetName) => {
+          var rowObj = XLSX.utils.sheet_to_json(wb.Sheets[sheetName]);
+          this.excelData = JSON.stringify(rowObj);
+        });
+      };
+      reader.readAsBinaryString(input.files[0]);
+    },
+  },
+};
+</script>
