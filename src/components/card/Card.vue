@@ -1,6 +1,6 @@
 <template>
-  <div class="flex justify-center w-auto">
-    <div class="block p-1 rounded-lg shadow-lg bg-white max-w-lg">
+  <div class="flex justify-center w-">
+    <div class="block p-1 rounded-lg shadow-lg bg-white">
       <div>
         <h5
           class="text-xl text-2xl font-mono text-left text-indigo-900 leading-tight font-medium mb-2"
@@ -8,7 +8,7 @@
           <app-title></app-title>
         </h5>
       </div>
-      <div class="bg-indigo-900 p-5 center-item">
+      <div class="bg-indigo-900 p-2 center-item">
         <app-chart :chartData="chartData"></app-chart>
       </div>
       <div class="flex justify-between mt-10 divide-x">
